@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<div class="wrapper"><head>
+	  <title>Patient Finder</title>
+	  <link rel="icon" type="image/x-icon" href="eme/Paw.ico">
+	  <link rel="stylesheet" href="eme/PatientFinder.css">
+	</head>
+	<body>
+		<h1 style="text-align: center;">Dr Pau Medical Center Patient Finder</h1>
+		<table id="PatientRecord" class="display" style="width:100%">
+			<thead>
+				<tr>
+					<th>Link</th>
+					<th>Patient ID</th>
+                    <th>Name</th>
+					<th>Record Type</th>
+					<th>Total Vaccines</th>
+					<th>Vax Sales</th>
+                    <th>Discount in Percentage</th>
+					<th>Method of Payment</th>
+					<th>Total Sales</th>
+					<!-- Add more columns as needed based on your JSON structure-->
+				</tr>
+			</thead>
+		</table>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+	<script>
+		new DataTable('#PatientRecord', {
+            ajax: 'https://script.google.com/macros/s/AKfycbxQUfZfwnX9_-etswJIGuVHMw959f-BxkO_S__I7Wg49tCBh8ucF7-28tjudmz-ez8n/exec',
+            columns: [
+        {
+            data: 'Link',
+            render: function(data, type, row) {
+                return '<a href="' + data + '" target="_blank">FULL DETAILS</a>';
+            }
+        },
+        { data: 'Patient ID' },
+        { data: 'Name' },
+        { data: 'Record Type' },
+        { data: 'Total Vaccines' },
+        { data: 'Vax Sales' },
+        { data: 'Discount in Percentage' },
+        { data: 'Method of Payment' },
+        { data: 'Total Sales' }
+    ]
+});
+	</script>
+	
+</body>
+</div>
+</html>
+
+
+
